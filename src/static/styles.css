@@ -8,3 +8,22 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+@font-face {
+    font-family: "pt";
+    src: url(../static/fonts/PTSerif-Regular.ttf);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    background-color: #1aac0d;
+    font-family: "pt";
+    font-size: 1.2rem;
+}
+
+header > h1 {
+    color: white;
+    margin: 0.40em 0;
+}
