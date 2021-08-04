@@ -35,6 +35,10 @@ main {
     align-items: center;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 #add {
     margin: 1.5rem 0;
     display: inline-block;
@@ -49,10 +53,101 @@ main {
 }
 
 #add:hover {
-    cursor: pointer;
     background: #1dbb0e;
 }
 
 #add:active {
     background: #1ec90e;
 }
+
+#card-grid {
+    margin: 1.5rem 0;
+    max-width: 77vw;
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 340px));
+    grid-auto-rows: 450px;
+}
+
+.card {
+    border: 1px solid black;
+    box-shadow: -1px 1px 5px black;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(#fff, #ddd);
+}
+
+.card > * {
+    font-family: "pt";
+    text-align: center;
+    padding: 0 15px;
+    font-weight: bold;
+}
+
+.book-info {
+    height: 65%;
+}
+
+.title {
+    font-size: 1.6rem;
+    color: #222;
+}
+
+.author {
+    font-size: 1.4rem;
+    color: #222;
+}
+
+.page-number {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.read-info {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.card-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;  
+    height: 30%;
+}
+
+.card-buttons > button {
+    font-size: 1.1rem;
+    padding: 8px;
+    font-family: "pt";
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.mark-read {
+    background-color: white;
+    color: #E76C67;
+}
+
+.remove {
+    color: white;
+    background-color: #e76c67;
+}
+
+.mark-read:hover {
+    background-color: rgb(245, 245, 245);
+}
+
+.mark-read:active {
+    background-color: rgb(235, 235, 235);
+}
+
+.remove:hover {
+    background-color: #f0706c;
+}
+
+.remove:active {
+    background-color: #ff7b76
+}   
