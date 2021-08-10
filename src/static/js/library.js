@@ -1,5 +1,7 @@
 const overlay = document.querySelector("#overlay");
 const overlayComputedStyle = getComputedStyle(overlay);
+const bookForm = document.querySelector("#book-form");
+
 overlay.toggle = (e) => {
     if (e) {
         if (e.target.id !== "add" && e.target.id !== "overlay") {
@@ -11,6 +13,7 @@ overlay.toggle = (e) => {
         overlay.style.display = "flex";
     }
     else {
+        bookForm.reset();
         overlay.style.display = "none";
     }
 }
@@ -18,3 +21,4 @@ overlay.toggle = (e) => {
 const addBook = document.querySelector("#add");
 addBook.addEventListener("click", overlay.toggle);
 overlay.addEventListener("click", overlay.toggle);
+
