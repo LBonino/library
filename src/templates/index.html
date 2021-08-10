@@ -30,5 +30,33 @@
                     </div>
                 </div>
         </main>
+
+        <div id="overlay">
+            <form id="book-form">
+                <ul>
+                    <li>
+                        <label for="form-title">Title</label>
+                        <input id="form-title" name="title" type="text" required>
+                    </li>
+                    <li>
+                        <label for="form-author">Author</label>
+                        <input id="form-author" name="author" type="text" required>
+                    </li>
+                    <li>
+                        <label for="form-page-number">Number of pages</label>
+                        <input id="form-page-number" name="page-number" type="number" required>
+                    </li>
+                    <li id="field-mark-read">
+                        <label for="form-mark-read">I have finished this book</label>
+                        <input id="form-mark-read" name="finished" value="true" type="checkbox">
+                    </li>
+                    <li>
+                        <button type="submit">ADD</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+
+        <script src="../static/js/library.js"></script>
     </body>
 </html>
