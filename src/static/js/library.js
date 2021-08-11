@@ -106,6 +106,9 @@ function generateCard(book) {
     markReadButton.textContent = (book.isRead) ? "Mark as unread" : "Mark as read";
     removeButton.textContent = "Remove from library";
 
+    markReadButton.style.backgroundColor = (book.isRead) ? "#3d8bf0" : "white";
+    markReadButton.style.color = (book.isRead) ? "white" : "#3d8bf0";
+
     markReadButton.addEventListener("click", markReadHandler);
     removeButton.addEventListener("click", removeBook);
 
