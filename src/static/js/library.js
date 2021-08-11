@@ -36,6 +36,32 @@ function Book(title, author, pageNumber, isRead) {
     this.isRead = isRead;
 }
 
+Book.prototype.toggleRead = function() {
+    if (this.isRead) {
+        this.isRead = false;
+    }
+    else {
+        this.isRead = true;
+    }
+}
+
+function markReadHandler(e) {
+    const bookInfo = e.target.closest(".card").getElementsByClassName("book-info")[0];
+    const title = bookInfo.getElementsByClassName("title")[0].textContent;
+    const author = bookInfo.getElementsByClassName("author")[0].textContent;
+
+    const book = library.books.filter(book => {
+        return (book.title === title && book.author === author)
+    })[0];
+
+    book.toggleRead();
+    let readInfo = bookInfo.getElementsByClassName("read-info")[0];
+    readInfo.textContent = (book.isRead) ? "Already read" : "Not read yet";
+    this.textContent = (book.isRead) ? "Mark as unread" : "Mark as read";
+    this.style.backgroundColor = (book.isRead) ? "#3d8bf0" : "white";
+    this.style.color = (book.isRead) ? "white" : "#3d8bf0";
+}
+
 function generateCard(book) {
     const title = document.createElement("h2");
     const author = document.createElement("p");
@@ -65,8 +91,10 @@ function generateCard(book) {
     markReadButton.classList.add("mark-read");
     removeButton.classList.add("remove");
 
-    markReadButton.textContent = "Mark as read";
+    markReadButton.textContent = (book.isRead) ? "Mark as unread" : "Mark as read";
     removeButton.textContent = "Remove from library";
+
+    markReadButton.addEventListener("click", markReadHandler);
 
     const cardButtons = document.createElement("div");
     cardButtons.classList.add("card-buttons");
