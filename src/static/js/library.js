@@ -62,6 +62,18 @@ function markReadHandler(e) {
     this.style.color = (book.isRead) ? "white" : "#3d8bf0";
 }
 
+function removeBook(e) {
+    const bookInfo = e.target.closest(".card").getElementsByClassName("book-info")[0];
+    const title = bookInfo.getElementsByClassName("title")[0].textContent;
+    const author = bookInfo.getElementsByClassName("author")[0].textContent;
+
+    library.books = library.books.filter(book => {
+        return (book.title !== title && book.author !== author)
+    });
+
+    e.target.closest(".card").remove();
+}
+
 function generateCard(book) {
     const title = document.createElement("h2");
     const author = document.createElement("p");
@@ -95,6 +107,7 @@ function generateCard(book) {
     removeButton.textContent = "Remove from library";
 
     markReadButton.addEventListener("click", markReadHandler);
+    removeButton.addEventListener("click", removeBook);
 
     const cardButtons = document.createElement("div");
     cardButtons.classList.add("card-buttons");
