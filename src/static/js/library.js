@@ -130,7 +130,18 @@ function generateCard(book) {
 
 const cardGrid = document.querySelector("#card-grid");
 
-bookForm.addEventListener("submit", (e) => {
+bookForm.renderError = function(message) {
+    const errorMessage = document.createElement("p");
+    errorMessage.textContent = message;
+    
+    const formItem = document.createElement("li");
+    formItem.appendChild(errorMessage);
+    formItem.id = "error";
+
+    this.querySelector("ul").appendChild(formItem);
+}
+
+bookForm.addEventListener("submit", function(e) {
     e.preventDefault();
     const book = new Book(
         bookForm.elements["form-title"].value,
@@ -138,6 +149,14 @@ bookForm.addEventListener("submit", (e) => {
         bookForm.elements["form-page-number"].value,
         bookForm.elements["form-mark-read"].checked
     )
+    if (library.getBook(book.title, book.author)) {
+        if (this.querySelector("#error")) {
+            return;
+        }
+
+        return bookForm.renderError("This book already exists in your library");
+    }
+
     library.addBook(book);
     cardGrid.appendChild(generateCard(book));
     overlay.toggle();
