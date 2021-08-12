@@ -172,3 +172,11 @@ bookForm.addEventListener("submit", function(e) {
     cardGrid.appendChild(generateCard(book));
     overlay.toggle();
 });
+
+function fillGrid(grid, items) {
+    items.forEach(item => {
+        grid.appendChild(generateCard(item));
+    });
+}
+
+fillGrid(cardGrid, library.books);
