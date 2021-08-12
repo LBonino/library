@@ -27,6 +27,11 @@ let library = {
     addBook: function(book) {
         this.books.push(book);
     },
+    getBook: function(title, author) {
+        return this.books.filter(book => {
+            return (book.title === title && book.author === author);
+        })[0];
+    }
 }
 
 function Book(title, author, pageNumber, isRead) {
@@ -50,9 +55,7 @@ function markReadHandler(e) {
     const title = bookInfo.getElementsByClassName("title")[0].textContent;
     const author = bookInfo.getElementsByClassName("author")[0].textContent;
 
-    const book = library.books.filter(book => {
-        return (book.title === title && book.author === author)
-    })[0];
+    const book = library.getBook(title, author);
 
     book.toggleRead();
     let readInfo = bookInfo.getElementsByClassName("read-info")[0];
