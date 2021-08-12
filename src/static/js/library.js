@@ -22,8 +22,12 @@ const addBook = document.querySelector("#add");
 addBook.addEventListener("click", overlay.toggle);
 overlay.addEventListener("click", overlay.toggle);
 
+if (!localStorage.getItem("books")) {
+    localStorage.setItem("books", JSON.stringify([]));
+}
+
 let library = {
-    books: [],
+    books: JSON.parse(localStorage.getItem("books")),
     addBook: function(book) {
         this.books.push(book);
     },
@@ -32,6 +36,10 @@ let library = {
             return (book.title === title && book.author === author);
         })[0];
     }
+}
+
+function updateBooksLocalStorage(books) {
+    localStorage.setItem("books", JSON.stringify(books));
 }
 
 function Book(title, author, pageNumber, isRead) {
@@ -58,6 +66,7 @@ function markReadHandler(e) {
     const book = library.getBook(title, author);
 
     book.toggleRead();
+    updateBooksLocalStorage(library.books);
     let readInfo = bookInfo.getElementsByClassName("read-info")[0];
     readInfo.textContent = (book.isRead) ? "Already read" : "Not read yet";
     this.textContent = (book.isRead) ? "Mark as unread" : "Mark as read";
@@ -73,6 +82,7 @@ function removeBook(e) {
     library.books = library.books.filter(book => {
         return (book.title !== title && book.author !== author)
     });
+    updateBooksLocalStorage(library.books);
 
     e.target.closest(".card").remove();
 }
@@ -158,6 +168,7 @@ bookForm.addEventListener("submit", function(e) {
     }
 
     library.addBook(book);
+    updateBooksLocalStorage(library.books);
     cardGrid.appendChild(generateCard(book));
     overlay.toggle();
 });
