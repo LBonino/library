@@ -58,6 +58,12 @@ Book.prototype.toggleRead = function() {
     }
 }
 
+// Books parsed from localStorage don't share the prototype of Book constructor
+// so its needed to assign the prototype to each book object.
+library.books.forEach(book => {
+    Object.setPrototypeOf(book, Object.create(Book.prototype));
+});
+
 function markReadHandler(e) {
     const bookInfo = e.target.closest(".card").getElementsByClassName("book-info")[0];
     const title = bookInfo.getElementsByClassName("title")[0].textContent;
