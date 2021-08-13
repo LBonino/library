@@ -14,6 +14,9 @@ overlay.toggle = (e) => {
     }
     else {
         bookForm.reset();
+        if (bookForm.querySelector("#error")) {
+            bookForm.querySelector("#error").remove();
+        }
         overlay.style.display = "none";
     }
 }
