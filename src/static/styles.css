@@ -8,7 +8,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: beige;
+    background-color: rgb(255, 255, 248);
 }
 
 @font-face {
@@ -20,7 +20,7 @@ header {
     display: flex;
     justify-content: center;
     width: 100vw;
-    background-color: #222;
+    background-color: #2e84bf;
     font-family: "pt";
     font-size: 1.2rem;
 }
@@ -49,7 +49,7 @@ button:hover {
     font-family: "pt";
     padding: 10px;
     color: #fff;
-    border: 1px solid black;
+    border: none;
     border-radius: 5px;
 }
 
@@ -71,13 +71,13 @@ button:hover {
 }
 
 .card {
-    border: 1px solid black;
-    box-shadow: -1px 1px 5px black;
+    box-shadow: -2px 2px 6px rgba(5, 42, 77, 0.76);
+    border: 2px solid #2e84bf;
     border-radius: 15px;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(#fff, #ddd);
 }
 
 .card > * {
@@ -93,22 +93,22 @@ button:hover {
 
 .title {
     font-size: 1.6  rem;
-    color: #222;
+    color: #0d6199;
 }
 
 .author {
     font-size: 1.4rem;
-    color: #222;
+    color: #0d6199;
 }
 
 .page-number {
     font-size: 1.2rem;
-    color: #333;
+    color: #0c65a0;
 }
 
 .read-info {
     font-size: 1.2rem;
-    color: #333;
+    color: #0c65a0;
 }
 
 .card-buttons {
@@ -124,21 +124,22 @@ button:hover {
     font-family: "pt";
     font-weight: bold;
     border-radius: 5px;
-    border: 1px solid black;
 }
 
 .mark-read {
+    border: 1px solid #2e84bf;
     background-color: white;
-    color: #3d8bf0;
+    color: #2e84bf;
 }
 
 .remove {
+    border: none;
     color: white;
-    background-color: #e76c67;
+    background-color: #eb504b;
 }
 
 .mark-read:hover {
-    background-color: rgb(245, 245, 245);
+    background-color: #53b1f0;
 }
 
 .mark-read:active {
@@ -146,11 +147,11 @@ button:hover {
 }
 
 .remove:hover {
-    background-color: #f0706c;
+    background-color: #f35752;
 }
 
 .remove:active {
-    background-color: #ff7b76
+    background-color: #fa635e;
 }   
 
 #overlay {
