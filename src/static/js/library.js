@@ -79,8 +79,8 @@ function markReadHandler(e) {
     let readInfo = bookInfo.getElementsByClassName("read-info")[0];
     readInfo.textContent = (book.isRead) ? "Already read" : "Not read yet";
     this.textContent = (book.isRead) ? "Mark as unread" : "Mark as read";
-    this.style.backgroundColor = (book.isRead) ? "#3d8bf0" : "white";
-    this.style.color = (book.isRead) ? "white" : "#3d8bf0";
+    this.style.backgroundColor = (book.isRead) ? "#2e84bf" : "white";
+    this.style.color = (book.isRead) ? "white" : "#2e84bf";
 }
 
 function removeBook(e) {
@@ -128,8 +128,8 @@ function generateCard(book) {
     markReadButton.textContent = (book.isRead) ? "Mark as unread" : "Mark as read";
     removeButton.textContent = "Remove from library";
 
-    markReadButton.style.backgroundColor = (book.isRead) ? "#3d8bf0" : "white";
-    markReadButton.style.color = (book.isRead) ? "white" : "#3d8bf0";
+    markReadButton.style.backgroundColor = (book.isRead) ? "#2e84bf" : "white";
+    markReadButton.style.color = (book.isRead) ? "white" : "#2e84bf";
 
     markReadButton.addEventListener("click", markReadHandler);
     removeButton.addEventListener("click", removeBook);
