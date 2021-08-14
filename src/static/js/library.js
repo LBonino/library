@@ -89,7 +89,7 @@ function removeBook(e) {
     const author = bookInfo.getElementsByClassName("author")[0].textContent;
 
     library.books = library.books.filter(book => {
-        return (book.title !== title && book.author !== author)
+        return (book.title + book.author !== title + author)
     });
     updateBooksLocalStorage(library.books);
 
