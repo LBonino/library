@@ -152,12 +152,8 @@ const cardGrid = document.querySelector("#card-grid");
 bookForm.renderError = function(message) {
     const errorMessage = document.createElement("p");
     errorMessage.textContent = message;
-    
-    const formItem = document.createElement("li");
-    formItem.appendChild(errorMessage);
-    formItem.id = "error";
-
-    this.querySelector("ul").appendChild(formItem);
+    errorMessage.id = "error";
+    this.appendChild(errorMessage);
 }
 
 bookForm.addEventListener("submit", function(e) {
