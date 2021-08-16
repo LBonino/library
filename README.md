@@ -23,5 +23,3 @@ If you try to add a book with both the same title and author of an existing book
 
 ### Storage
 Your library is stored locally in your browser.
-
-## Preview
