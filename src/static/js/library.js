@@ -45,19 +45,17 @@ function updateBooksLocalStorage(books) {
     localStorage.setItem("books", JSON.stringify(books));
 }
 
-function Book(title, author, pageNumber, isRead) {
-    this.title = title;
-    this.author = author;
-    this.pageNumber = pageNumber;
-    this.isRead = isRead;
-}
-
-Book.prototype.toggleRead = function() {
-    if (this.isRead) {
-        this.isRead = false;
+class Book {
+    constructor(title, author, pageNumber, isRead) {
+        this.title = title;
+        this.author = author;
+        this.pageNumber = pageNumber;
+        this.isRead = isRead;
     }
-    else {
-        this.isRead = true;
+
+    toggleRead() {
+        if (this.isRead) this.isRead = false;
+        else this.isRead = true;
     }
 }
 
